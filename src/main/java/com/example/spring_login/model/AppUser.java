@@ -1,9 +1,8 @@
-package com.example.spring_login.appuser;
+package com.example.spring_login.model;
 
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -15,8 +14,8 @@ import java.util.Collections;
 @Getter
 @Setter
 @EqualsAndHashCode
-@NoArgsConstructor
 @Entity
+@Table(name = "app_user")
 public class AppUser implements UserDetails {
     @SequenceGenerator(
             name = "app_user_sequence",
@@ -36,15 +35,9 @@ public class AppUser implements UserDetails {
     private Boolean isLocked;
     private Boolean isEnabled;
 
-    public AppUser(String name, String username, String password, String email,
-                   AppUserRole appUserRole, Boolean isLocked, Boolean isEnabled) {
-        this.name = name;
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.appUserRole = appUserRole;
-        this.isLocked = isLocked;
-        this.isEnabled = isEnabled;
+    public AppUser() {
+        this.isLocked = false;
+        this.isEnabled = true;
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.example.spring_login.security.config;
+package com.example.spring_login.security;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

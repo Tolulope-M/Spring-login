@@ -1,4 +1,4 @@
-package com.example.spring_login.request;
+package com.example.spring_login.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -10,8 +10,8 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 public class RegistrationRequest {
-    private final String firstName;
-    private final String lastName;
+    private final String name;
     private final String email;
     private final String password;
+    private final String username;
 }

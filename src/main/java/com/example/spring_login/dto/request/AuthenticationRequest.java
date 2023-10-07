@@ -1,4 +1,4 @@
-package com.example.spring_login.request;
+package com.example.spring_login.dto.request;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

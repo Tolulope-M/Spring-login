@@ -1,6 +1,5 @@
-package com.example.spring_login.appuser;
+package com.example.spring_login.security;
 
-import com.example.spring_login.dao.UserDao;
 import com.example.spring_login.repository.AppUserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,17 +14,17 @@ public class AppUserService implements UserDetailsService {
             "User with email %s not found";
     private final AppUserRepository appUserRepository;
 
-    private final UserDao userDao;
+//    private final UserDao userDao;
 
 
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-//        return appUserRepository.findByEmail(email)
-//                .orElseThrow(() ->
-//                        new UsernameNotFoundException(
-//                                String.format(USER_NOT_FOUND_MESSAGE, email)));
-        return userDao.findUserByEmail(email);
+        return appUserRepository.findByEmail(email)
+                .orElseThrow(() ->
+                        new UsernameNotFoundException(
+                                String.format(USER_NOT_FOUND_MESSAGE, email)));
+//        return userDao.findUserByEmail(email);
 
     }
 }

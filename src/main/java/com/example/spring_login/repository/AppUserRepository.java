@@ -1,6 +1,6 @@
 package com.example.spring_login.repository;
 
-import com.example.spring_login.appuser.AppUser;
+import com.example.spring_login.model.AppUser;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

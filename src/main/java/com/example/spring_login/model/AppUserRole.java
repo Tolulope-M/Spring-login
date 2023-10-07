@@ -1,4 +1,4 @@
-package com.example.spring_login.appuser;
+package com.example.spring_login.model;
 
 public enum AppUserRole {
     USER,
