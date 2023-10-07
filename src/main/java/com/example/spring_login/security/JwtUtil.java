@@ -16,7 +16,6 @@ import java.util.function.Function;
 public class JwtUtil {
 
     private String jwtSigningKey = "secret";
-
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
     }

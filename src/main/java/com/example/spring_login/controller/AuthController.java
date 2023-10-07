@@ -22,7 +22,6 @@ import java.util.Map;
 public class AuthController {
 
     private final AuthenticationManager authenticationManager;
-//    private final UserDao userDao;
     private final AppUserService appUserService;
     private final JwtUtil jwtUtil;
     @PostMapping("/authenticate")

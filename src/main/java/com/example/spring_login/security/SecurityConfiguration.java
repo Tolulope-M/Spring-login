@@ -20,23 +20,18 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 public class SecurityConfiguration{
     private final JwtAuthFilter jwtAuthFilter;
-
     private final AppUserService appUserService;
-
     private final String[] WHITE_LIST = {
         "/api/v*/auth/**",
         "/api/v*/registration/**"
     };
-
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(csrf->csrf.disable())
                 .authorizeHttpRequests(authorize->authorize.requestMatchers(WHITE_LIST).permitAll()
                         .anyRequest().authenticated());
-
                 http.sessionManagement(session-> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
-
               http
                 .authenticationProvider(authentiactionProvider())
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
@@ -60,8 +55,5 @@ public class SecurityConfiguration{
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
-//        return NoOpPasswordEncoder.getInstance();
     }
-
-
 }
