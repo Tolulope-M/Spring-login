@@ -1,6 +1,7 @@
 package com.example.spring_login.controller;
 
 import com.example.spring_login.appuser.AppUserService;
+import com.example.spring_login.dao.UserDao;
 import com.example.spring_login.request.AuthenticationRequest;
 import com.example.spring_login.security.config.JwtUtil;
 import lombok.AllArgsConstructor;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
 
     private final AuthenticationManager authenticationManager;
+    private final UserDao userDao;
     private final AppUserService appUserService;
     private final JwtUtil jwtUtil;
     @PostMapping("/authenticate")
@@ -29,7 +31,7 @@ public class AuthController {
                         request.getEmail(),
                         request.getPassword()
                 ));
-        final UserDetails user = appUserService.loadUserByUsername(request.getEmail());
+        final UserDetails user = userDao.findUserByEmail(request.getEmail());
         if (user != null) {
             final String jwtToken = jwtUtil.generateToken(user);
             return new ResponseEntity<>(jwtToken, HttpStatus.OK);
