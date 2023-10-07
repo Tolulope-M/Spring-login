@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/myDatabase?useSSL=false&serverTimezone=UTC
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+#        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+        show_sql: true
+  security:
+    user:
+      password:
+  logging:
+    level:
+      org.springframework.security: DEBUG
