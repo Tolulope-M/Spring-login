@@ -5,7 +5,9 @@ import com.example.spring_login.dto.response.RegistrationResponse;
 
 public interface RegistrationService {
     public RegistrationResponse register(RegistrationRequest request);
-    public RegistrationResponse editUser(RegistrationRequest request);
-    public RegistrationResponse deleteUser();
+    public RegistrationResponse updateProfile(RegistrationRequest request);
+    public RegistrationResponse deleteProfile();
     public RegistrationResponse getUser();
+    public RegistrationResponse forgetPassword();
+
 }
